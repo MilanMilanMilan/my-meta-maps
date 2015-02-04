@@ -1,13 +1,15 @@
 /**
  * This is a basic Backbone.Model which tries to avoid multiple server requests with the same data (flooding)
+ * @namespace
  */
 BaseModel = Backbone.Model.extend({
 	enableAntiFlood: true,
 
 	/**
-	 * TODO
+	 * Return the 'division' of the the current date and 1000
 	 * 
-	 * @return{number} 
+	 * @return{number}
+	 * @memberof BaseModel
 	 */
 	time: function() {
 		return Math.floor(Date.now() / 1000);
@@ -18,6 +20,7 @@ BaseModel = Backbone.Model.extend({
 	 * Else return true
 	 * 
  	 * @param {Object} data
+	 * @memberof BaseModel
 	 */
 	isSameRequest: function(data) {
 		var request = JSON.stringify(data.request);
@@ -33,10 +36,11 @@ BaseModel = Backbone.Model.extend({
 	},
 	
 	/**
-	 * TODO
+	 * Serialize requests
 	 * 
  	 * @param {Object} method
 	 * @param {Object} params
+	 * @memberof BaseModel
 	 */
 	serializeRequest: function(method, params) {
 		return {
@@ -50,9 +54,11 @@ BaseModel = Backbone.Model.extend({
 	},
 	
 	/**
-	 * TODO
+	 * If the request is not the same fetch the data
+	 * else return null
 	 * 
  	 * @param {Object} options
+	 * @memberof BaseModel
 	 */
 	fetch: function(options) {
 		var data = this.serializeRequest('fetch', options);
@@ -67,11 +73,13 @@ BaseModel = Backbone.Model.extend({
 	},
 	
 	/**
-	 * TODO
+	 * If the request is not the same save the data
+	 * else return null
 	 *  
 	 * @param {Object} key
 	 * @param {Object} val
 	 * @param {Object} options
+	 * @memberof BaseModel
 	 */
 	save: function(key, val, options) {
 		var data = this.serializeRequest('save', {key: key, val: val, options: options});
@@ -86,11 +94,12 @@ BaseModel = Backbone.Model.extend({
 	},
 	
 	/**
-	 * TODO
-	 * 
+	 * Abstract method
+	 * Called before http-request
 	 * @param {Object} key
 	 * @param {Object} val
 	 * @param {Object} options
+	 * @memberof BaseModel
 	 */
 	before: function(key, val, options) {
 		if (key == null || typeof key === 'object') {
@@ -105,11 +114,12 @@ BaseModel = Backbone.Model.extend({
 	},
 	
 	/**
-	 * TODO
-	 *  
+	 * Abstract method
+	 * Called if http-request is skipped
 	 * @param {Object} key
 	 * @param {Object} val
 	 * @param {Object} options
+	 * @memberof BaseModel
 	 */
 	skipped: function(key, val, options) {
 		if (key == null || typeof key === 'object') {

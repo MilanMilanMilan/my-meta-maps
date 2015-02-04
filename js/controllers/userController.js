@@ -1,11 +1,9 @@
 /**
 * Send a POST-request to the server to save a registration
-* 
 * @param {Object} model
 * @param {JSON} inputRegister 
 */
 function userRegisterController(model, inputRegister) {
-
 	model.save(inputRegister, {
 		
 		/*
@@ -42,8 +40,8 @@ function userRegisterController(model, inputRegister) {
 * Send a GET-request to the server to logout a user
 */
 function userLogoutController() {
-	
 	var model = new UserLogout();
+	
 	model.fetch({
 		
 		/*
@@ -51,7 +49,7 @@ function userLogoutController() {
 		 */
 		success: function(){
 			Debug.log('Logout succeded');
-			MessageBox.addSuccess(Lang.t('succededRegister'));
+			MessageBox.addSuccess(Lang.t('succededLogout'));
 			AuthUser.setUser();
 		},
 		
@@ -60,19 +58,17 @@ function userLogoutController() {
 		 */
 		error: function(){
 			Debug.log('Logout failed');
-			MessageBox.addError(Lang.t('succededLogout'));
+			MessageBox.addError(Lang.t('failedLogout'));
 		}
 	});
 }
 
 /**
 * Send a POST-request to the server to login a user
-* 
 * @param {Object} model
 * @param {JSON} inputLogin 
 */
 function userLoginController(model, inputLogin) {
-	
 	model.save(inputLogin, {
 		
 		/*
@@ -117,12 +113,10 @@ function userLoginController(model, inputLogin) {
 
 /**
 * Send a POST-request to the server to login a user
-* 
 * @param {Object} model
 * @param {JSON} inputChangeGeneral 
 */
 function userChangeGeneralController(model, inputChangeGeneral) {
-	
 	model.save(inputChangeGeneral, {
 		
 		/*
@@ -163,12 +157,10 @@ function userChangeGeneralController(model, inputChangeGeneral) {
 
 /**
 * Send a POST-request to the server to login a user
-* 
 * @param {Object} model
 * @param {JSON} inputChangePassword 
 */
 function userChangePasswordController(model, inputChangePassword) {
-	
 	model.save(inputChangePassword, {
 		
 		/*
@@ -216,10 +208,10 @@ function registeredUserChangedLanguage() {
  * @param {String} idForm
  * @param {String} key
  */
-function userCheckDataController(model, idInput, idForm, key) {
-	
+function userCheckDataController(idInput, idForm, key) {
 	var inputCheckData = {};
 	inputCheckData[key] = $("#" + idInput).val();
+	var model = new UserCheckData();
 	
 	model.save(inputCheckData, {
 		
@@ -235,6 +227,7 @@ function userCheckDataController(model, idInput, idForm, key) {
 		 */
 		success: function () {
 			Debug.log('User data has not already been taken.');
+			Progress.stop('.modal-progress');
 			responseJSON = {};
 			responseJSON[key] = Lang.t('specUse');
 			FormErrorMessages.applyPartially('#'+idForm, responseJSON, true);
@@ -245,7 +238,9 @@ function userCheckDataController(model, idInput, idForm, key) {
 		 */
 		error: function (data, response) {
 			Debug.log('User data has already been taken.');
+			Progress.stop('.modal-progress');
 			FormErrorMessages.applyPartially('#'+idForm, response.responseJSON, false);
 		}
+
 	});
 };

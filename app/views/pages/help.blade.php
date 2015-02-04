@@ -2,64 +2,47 @@
 <h1>@lang('misc.headline')</h1>
 <!-- End of headline -->
 	<!-- Beginning howto registration -->
-	<div class="HowToRegister">
-		<h2>Wie registriere ich mich?</h2>
-			<div>
-				Text für Registrierung mit Bildchen
-			</div>
-	</div>
+	<h2>@lang('misc.howtoReg')</h2>
+		<div class='pos_left'>
+			Die Registrierung auf My Meta Maps erfolgt über einen Klick auf die Schaltfläche <a href="javascript:router.register();" class="btn btn-primary" id="registerBtn">@lang('misc.register')&nbsp;<span class="glyphicon glyphicon-edit"></span></a> 
+		</div>
 	<!-- End of howto registration -->
 	<!-- Beginning howto sign in -->
-	<div class="HowToLogin">
-		<h2>Wie melde ich mich an?</h2>
-			<div>
-				Text für Login mit Bildchen
-			</div>
-	</div>
+	<h2>@lang('misc.howtoLogin')</h2>
+		<div class='pos_left'>
+			Um sich einzuloggen klicken Sie oben rechts auf die Schaltfläche <a href="javascript:router.loginout();" class="btn btn-primary" id="loginBtn"><span id="logBtnText">@lang('misc.login')</span>&nbsp;<span class="glyphicon glyphicon-log-in" id="loginBtnIcon"></span></a>
+		</div>
 	<!-- End of howto sign in -->
 	<!-- Beginning howto comment -->
-	<div class="HowToComment">
-		<h2>Wie kommentiere ich einen Geodatensatz?</h2>
-			<div>
-				Text für Kommentierung eventuell mit Bildchen
-			</div>
-	</div>
+	<h2>@lang('misc.howtoComm')</h2>
+		<div class='pos_left'>
+			Ebenfalls oben rechts befindet sich die Schaltfläche zur Erstellung eines Kommentares <a href="javascript:router.addComment();" class="btn btn-primary" id="commentBtn">@lang('misc.addComment')&nbsp;<span class="glyphicon glyphicon-plus-sign"></span></a>
+		</div>
 	<!-- End of howto comment -->
 	<!-- Beginning howto filter -->
-	<div class="HowToFilter">
-		<h2>Wie filtere ich Kommentare und welche Filter gibt es?</h2>
-			<!-- Beginning spatial filter -->
-			<div class='spatialFilter'>
-				<h3>Räumlicher Filter</h3>
-					<div>
-						Der räumliche Filter ermöglicht die selektierte Anzeige von Datensätzen in einem gewählten Umkreis um den Kartenmittelpunkt.
-					</div>
+	<h2>@lang('misc.whichFilter')</h2>
+		<!-- Beginning spatial filter -->
+		<h3>@lang('misc.spatialFilter')</h3>
+			<div class='pos_left'>
+				Der räumliche Filter ermöglicht die selektierte Anzeige von Datensätzen in einem gewählten Umkreis um den Kartenmittelpunkt.
 			</div>
-			<!-- End ofspatial filter -->
-			<!-- Beginning time filter -->
-			<div class='timeFilter'>
-				<h3>Zeitlicher Filter</h3>
-					<div>
-						Der zeitliche Filter ermöglicht die Filterung von Datensätzen von bestimmten Zeiträumen
-					</div>
+		<!-- End of spatial filter -->
+		<!-- Beginning time filter -->
+		<h3>@lang('misc.timeFilter')</h3>
+			<div class='pos_left'>
+				Der zeitliche Filter ermöglicht die Filterung von Datensätzen von bestimmten Zeiträumen
 			</div>
-			<!-- End of time filter -->
-			<!-- Beginning rate-filter -->
-			<div class='rateFilter'>
-				<h3>Filter nach Bewertung</h3>
-					<div>
-						Der Bewertungsfilter ermöglicht die selektierte Anzeige von Datensätzen mitbestimmten Bewertungen
-					</div>
+		<!-- End of time filter -->
+		<!-- Beginning rate-filter -->
+		<h3>@lang('misc.rateFilter')</h3>
+			<div class='pos_left'>
+				Der Bewertungsfilter ermöglicht die selektierte Anzeige von Datensätzen mitbestimmten Bewertungen
 			</div>
-			<!-- End of rate-filter -->
-			<!-- Begin of keyword-search -->
-			<div class='keywordSearch'>	
-				<h3>Stichwortsuche</h3>
-					<div>
-						Die Stichwortsuche ermöglicht die Suche nach Wörtern die in einem Kommentar hinterlegt wurden.
-					</div>
+		<!-- End of rate-filter -->
+		<!-- Begin of keyword-search -->	
+		<h3>@lang('misc.keywordSearch')</h3>
+			<div class='pos_left'>
+				Die Stichwortsuche ermöglicht die Suche nach Wörtern die in einem Kommentar hinterlegt wurden.
 			</div>
-			<!-- End of keyword-search -->
-
-	</div>
+		<!-- End of keyword-search -->
 	<!-- End of howto filter -->

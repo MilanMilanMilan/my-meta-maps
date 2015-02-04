@@ -117,6 +117,7 @@ h3 {
 	margin-bottom: 10px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #e7e7e7;
+	word-wrap: break-word;
 }
 .metadata-list dd:last-of-type {
 	margin-bottom: 0px;
@@ -273,4 +274,9 @@ h3 {
 #showCommentsToGeodata .comment-highlighter dd pre {
 	color: #31708f;
 	font-weight: bold;
+}
+
+.pos_left {
+	position: relative;
+	left: 50px;
 }
